@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
+import {StyleSheet } from 'react-native'
 import styled from 'styled-components/native';
 import lista from '../../src/lista';
 import ListaItem from '../components/ListaItem';
 import AddItemArea from '../components/AddItemArea';
 import uuid from 'uuid/v4';
+import {SwipeListView} from 'react-native-swipe-list-view';
+import ListaItemSwipe from '../components/ListaItemSwipe';
 
 const Container = styled.SafeAreaView`
     flex:1;
@@ -14,48 +17,13 @@ const Background = styled.ImageBackground`
     height:100%;
 `;
 
-const ScrollArea = styled.View `    
+const ScrollArea = styled.KeyboardAvoidingView `    
     align-items:center;
     margin:auto;
     background-color:#fdfdfd;
 
 `;
 
-const Listagem = styled.FlatList`
-        margin-top:10px;
-        padding-top:15px;
-        width:300px;     
-        height:400px;
-`;
-
-const ItemList = styled.TouchableOpacity`
-    padding:10px;
-    background-color:#fdfdfd;
-    flex-direction:row;
-`;
-
-const ItemText = styled.Text`
-    font-size:15px;
-    flex:1;
-`;
-
-const ItemCheck = styled.View`
-    width:20px;
-    height:20px;
-    border:5px solid #000;
-`;
-
-const AreaBotao = styled.View`
-    margin-top:15px;
-    width:300px;
-    flex-direction:row;
-    justify-content:space-around;
-`;
-
-
-const Button = styled.Button`
-    margin:4px;
-`;
 
 const Page = ()=>{
     const [items,setItems] = useState(lista);
@@ -70,15 +38,32 @@ const addNewItem = (txt)=>{
     setItems(newItems);
 } 
 
+const toggleDone = (index) =>{
+    let newItems = [...items];
+    newItems[index].done = !newItems[index].done;
+    setItems(newItems);
+}
+
+
+const deleteItem = (index) =>{
+    let newItems = [...items];
+    newItems = newItems.filter((it,i)=>i!=index);
+    setItems(newItems);
+}
+
 
     return(
         <Container>       
              <Background source={require('../images/Backgrounds/shoplist.jpg')}>
              <AddItemArea onAdd={addNewItem} />
-             <ScrollArea>
-                <Listagem 
+             <ScrollArea behavior="height">
+                <SwipeListView  style={styles.Listagem}
                     data={items}
-                    renderItem={({item})=><ListaItem data={item} />}
+                    renderItem={({item,index})=><ListaItem onPress={()=>toggleDone(index)} data={item} />}
+                    renderHiddenItem={({item,index})=><ListaItemSwipe onDelete={()=>deleteItem(index)} />}
+                    leftOpenValue={50}
+                    disableLeftSwipe={true}
+
                     keyExtractor={(item)=>item.id}
                 />
 
@@ -87,6 +72,16 @@ const addNewItem = (txt)=>{
         </Container>
     );
 }
+
+const styles = StyleSheet.create({
+    Listagem:{       
+        width:300,
+        height:400,
+        marginLeft:5,
+        marginRight:5
+
+    }
+})
 
 
 Page.navigationOptions = () =>{

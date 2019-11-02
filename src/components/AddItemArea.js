@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components/native';
 
 
-const AddItemArea = styled.View`
+const AddItemArea = styled.KeyboardAvoidingView`
     background-color:#ccc;
     padding:10px;
 `;
@@ -29,7 +29,7 @@ export default (props) => {
     }
 
         return (
-          <AddItemArea>
+          <AddItemArea behavior="height">
             <AddItemInput placeholder="Digite um novo item"
                 value={item}
                 onChangeText={e=>setItem(e)} 

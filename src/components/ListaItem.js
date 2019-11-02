@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components/native';
 
-const ItemList = styled.TouchableOpacity`
-    padding:10px;
+const ItemList = styled.TouchableHighlight`
     background-color:#fdfdfd;
     flex-direction:row;
+    margin-bottom:5px;
+    border:1px solid #ccc;
+    height:50px;
+    justify-content:center;
+    align-items:center;
+    padding-left:20px;
+    padding-right:20px;
+
 `;
 
 const ItemText = styled.Text`
@@ -15,15 +22,16 @@ const ItemText = styled.Text`
 const ItemCheck = styled.View`
     width:20px;
     height:20px;
-    border:5px solid #000;
+    border:${props=>props.done?'5px solid #05f219;':'5px solid #e00b0b;'};
+    background-color:${props=>props.done?'#05f219':'transparent'};
 `;
 
 export default (props) => {    
         return (
-            <ItemList onPress={()=>{}}>
+            <ItemList onPress={props.onPress} underlayColor="#ddd">
                 <>
                     <ItemText>{props.data.task}</ItemText>
-                    <ItemCheck></ItemCheck>
+                    <ItemCheck done={props.data.done}></ItemCheck>
                 </>   
                 </ItemList>
 
