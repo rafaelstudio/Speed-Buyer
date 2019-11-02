@@ -1,4 +1,7 @@
+import React from 'react';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import CustomDrawer from '../components/CustomDrawer'
+
 
 import menuInicial from '../screens/menuInicial';
 import Perfil from '../screens/Perfil';
@@ -15,7 +18,7 @@ import Logout from '../screens/Logout';
 
 const HomeDrawer = createDrawerNavigator({
 
-menuInicial:{
+Inicio:{
      screen:menuInicial
 },
 Perfil:{
@@ -50,6 +53,15 @@ Logout:{
 }
 
     
-})
+}, {
+    headerMode: 'float',
+    navigationOptions: ({navigation}) => ({
+      headerStyle: {backgroundColor: '#4C3E54'},
+      title: 'Welcome!',
+      headerTintColor: 'white',
+    })
+});
 
 export default HomeDrawer;
+
+  //contentComponent:(props)=><CustomDrawer {...props} />,
