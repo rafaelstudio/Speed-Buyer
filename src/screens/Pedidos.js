@@ -15,6 +15,10 @@ const AreaBotao = styled.View`
     height:100px;
 `;
 
+const Image = styled.Image`
+
+`;
+
 
 const Botao = styled.Button`
 
@@ -34,7 +38,12 @@ const Page = (props)=>{
 
 Page.navigationOptions = () =>{
     return{
-        title:'Pedidos'
+        title:'Pedidos',
+        drawerIcon: () => (
+            <Image
+              source={require('../images/icons/pedidos.icon.jpg')}
+              style={{width: 30, height: 30, borderRadius: 15}}
+            />)
     }
 }
 

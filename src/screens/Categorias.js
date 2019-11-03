@@ -10,6 +10,11 @@ const Texto = styled.Text`
     font-size:15px;
 `;
 
+const Image = styled.Image`
+
+`;
+
+
 const AreaBotao = styled.View`
     width:150px;
     margin-top:20px;
@@ -35,7 +40,12 @@ const Page = (props)=>{
 
 Page.navigationOptions = () =>{
     return{
-        title:'Categorias'
+        title:'Categorias',
+        drawerIcon: () => (
+            <Image
+              source={require('../images/icons/categorias.jpg')}
+              style={{width: 30, height: 30, borderRadius: 15}}
+            />)
     }
 }
 

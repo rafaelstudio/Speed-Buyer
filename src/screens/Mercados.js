@@ -14,12 +14,28 @@ const Botao = styled.Button`
    
 `;
 
+const Image = styled.Image`
+
+`;
+
+
 const Page = (props)=>{
     return(
         <Container>
             <Texto>Mercados</Texto>
         </Container>
     );
+}
+
+Page.navigationOptions = () =>{
+    return{
+        title:'Mercados',
+        drawerIcon: () => (
+            <Image
+              source={require('../images/icons/mercados.png')}
+              style={{width: 30, height: 30, borderRadius: 15}}
+            />)
+    }
 }
 
 export default Page;

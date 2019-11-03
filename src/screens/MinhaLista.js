@@ -24,6 +24,9 @@ const ScrollArea = styled.KeyboardAvoidingView `
 
 `;
 
+const Image = styled.Image`
+
+`;
 
 const Page = ()=>{
     const [items,setItems] = useState(lista);
@@ -86,7 +89,12 @@ const styles = StyleSheet.create({
 
 Page.navigationOptions = () =>{
     return{
-        title:'Lista de compras'
+        title:'Lista de compras',
+        drawerIcon: () => (
+            <Image
+              source={require('../images/icons/lista.png')}
+              style={{width: 30, height: 30, borderRadius: 15}}
+            />)
     }
 }
 

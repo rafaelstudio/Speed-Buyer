@@ -16,6 +16,10 @@ const AreaBotao = styled.View`
     height:100px;
 `;
 
+const Image = styled.Image`
+
+`;
+
 
 const Botao = styled.Button`
 
@@ -35,7 +39,12 @@ const Page = (props)=>{
 
 Page.navigationOptions = () =>{
     return{
-        title:'Meu Carrinho'
+        title:'Meu Carrinho',
+        drawerIcon: () => (
+            <Image
+              source={require('../images/icons/carrinho.png')}
+              style={{width: 30, height: 30, borderRadius: 15}}
+            />)
     }
 }
 
