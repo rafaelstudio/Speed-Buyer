@@ -20,10 +20,20 @@ const Logo = styled.Image`
     margin-top:10px;
 `;
 
-const Botao = styled.Button`
-  
+const Botao = styled.TouchableOpacity`
+  width:90% ;
+  height:40px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #ccc;
+  margin-bottom:10px;
+  background-color:#f4f4f4;
 `;
 
+const TextBotao = styled.Text`
+    font-family:sans-serif;
+    font-size:15px;
+`;
 
 
 
@@ -39,7 +49,9 @@ return(
             
             />
 
-            <Botao title="Sair" />
+            <Botao>
+                <TextBotao>Sair</TextBotao>
+            </Botao>
         </Area>
     </Scroll>
 

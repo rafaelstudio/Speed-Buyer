@@ -13,7 +13,7 @@ import MeuCarrinho from '../screens/MeuCarrinho';
 import Promocoes from '../screens/Promocoes';
 import Favoritos from '../screens/Favoritos';
 import CentralAjuda from '../screens/CentralAjuda';
-import Logout from '../screens/Logout';
+
 
 
 const HomeDrawer = createDrawerNavigator({
@@ -47,13 +47,10 @@ Favoritos:{
 },
 CentralAjuda:{
     screen:CentralAjuda
-},
-Logout:{
-    screen:Logout
 }
-
     
 }, {
+    contentComponent:(props)=><CustomDrawer {...props} />,
     headerMode: 'float',
     navigationOptions: ({navigation}) => ({
       headerStyle: {backgroundColor: '#4C3E54'},
@@ -64,4 +61,4 @@ Logout:{
 
 export default HomeDrawer;
 
-  //contentComponent:(props)=><CustomDrawer {...props} />,
+  

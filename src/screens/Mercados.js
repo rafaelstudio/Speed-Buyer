@@ -1,29 +1,35 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { tsPropertySignature } from '@babel/types';
+import listaMercado from '../ListaMercado'
+import ListaItemMercados from '../components/ListaItemMercados'
 
 const Container = styled.SafeAreaView`
     flex:1;
 `;
 
-const Texto = styled.Text`
-    font-size:15px;
+const Listagem = styled.FlatList`
+    flex:1;
 `;
 
-const Botao = styled.Button`
-   
-`;
+
 
 const Image = styled.Image`
 
 `;
 
 
+
 const Page = (props)=>{
     return(
-        <Container>
-            <Texto>Mercados</Texto>
-        </Container>
+    <Container>
+        <Listagem 
+            data={listaMercado}
+            renderItem={({item})=><ListaItemMercados data={item} /> }
+            keyExtractor={(item)=>item.id}
+
+        />   
+       
+   </Container>
     );
 }
 

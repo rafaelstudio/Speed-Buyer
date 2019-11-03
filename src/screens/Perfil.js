@@ -1,9 +1,18 @@
 
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, View ,Image} from 'react-native'
 import axios from 'axios'
 
 export default class Perfil extends Component {
+
+    static navigationOptions = {
+        title:'Perfil',
+        drawerIcon: () => (
+            <Image
+              source={require('../images/icons/perfil.png')}
+              style={{width: 30, height: 30, borderRadius: 15}}
+            />)
+    };
    
     constructor()
     {
