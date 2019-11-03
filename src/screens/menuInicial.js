@@ -114,10 +114,13 @@ const TitleText = styled.Text `
 
 
 
-
 const Page = (props)=>{
+
+    
     return(
         <Container>
+
+       
             <Scroll>
                 <ViewStore>
                     <Promocoes>
@@ -262,8 +265,16 @@ const Page = (props)=>{
 
 Page.navigationOptions = () =>{
     return{
-        title:'Inicio'
+        title:'Inicio',
+        drawerLabel: 'Menu Inicial',
+        drawerIcon: () => (
+            <Image
+              source={require('../images/icons/carrinho.png')}
+              style={{width: 30, height: 30, borderRadius: 15}}
+            />)
     }
 }
 
 export default Page;
+
+
