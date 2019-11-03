@@ -3,7 +3,7 @@ import uuid from 'uuid/v4';
 export default [
     { 
         id:uuid(),
-        imagem:'../src/images/Mercados/carrefour.gif',
+        imagem:require('../src/images/Mercados/carrefour.gif'),
         nome:'Carrefour',
         rua:'Fulaninho da silva sauro',
         numero:'0000',
@@ -13,7 +13,7 @@ export default [
     },
     { 
         id:uuid(),
-        imagem:'../src/images/Mercados/carrefour.gif',
+        imagem:require('../src/images/Mercados/atacadao.jpg'),
         nome:'Atacadao',
         rua:'Fulaninho da silva sauro',
         numero:'0000',
@@ -23,7 +23,7 @@ export default [
     },
     { 
         id:uuid(),
-        imagem:'../images/Mercados/atacadao.png',       
+        imagem:require('../src/images/Mercados/makro.png'),      
         nome:'Makro',
         rua:'Fulaninho da silva sauro',
         numero:'0000',
@@ -33,7 +33,7 @@ export default [
     },
     { 
         id:uuid(),
-        imagem:'../src/images/Mercados/carrefour.gif',
+        imagem:require('../src/images/Mercados/iga.jpg'), 
         nome:'IGA',
         rua:'Fulaninho da silva sauro',
         numero:'0000',
@@ -43,8 +43,8 @@ export default [
     },
     { 
         id:uuid(),
-        imagem:'../src/images/Mercados/carrefour.gif',
-        nome:'Extra',
+        imagem:require('../src/images/Mercados/tenda.png'),
+        nome:'Tenda Atacado',
         rua:'Comendaor Enzo Ferrari  faz',
         numero:'1568',
         bairro:'Swift',

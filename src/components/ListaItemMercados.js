@@ -49,7 +49,7 @@ const TextEnd = styled.Text`
 export default (props) =>{
     return(
         <Area onPress={()=>{}} >
-                <Imagem source={require('{props.data.imagem}')} />
+                <Imagem source={props.data.imagem} />
                 <Info>
                     <TextName>{props.data.nome}</TextName>
                     <TextEnd>Rua:{props.data.rua}N:{props.data.numero}</TextEnd>
