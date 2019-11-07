@@ -11,7 +11,7 @@ import { Text, StyleSheet, View,Picker } from 'react-native'
                 {nome:'Sou Cliente',valor:1},
                 {nome:'Buyer',valor:2},
                 {nome:'Deliver',valor:3},
-                {nome:'Safeway',valor:3}
+                {nome:'SpeedBuyer',valor:3}
 
             ]
             
@@ -44,9 +44,8 @@ const styles = StyleSheet.create({
     },
 
     select:{
-        width:200,
-        height:40,
-        borderWidth:1
+        width:250,
+        height:50
     }
 })
 
