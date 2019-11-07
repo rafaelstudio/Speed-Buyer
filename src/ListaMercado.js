@@ -47,6 +47,7 @@ export default [
         nome:'Tenda Atacado',
         rua:'Comendaor Enzo Ferrari  faz',
         numero:'1568',
+        
         bairro:'Swift',
         cidade:'Campinas',
         estado:'SP',

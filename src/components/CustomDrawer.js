@@ -4,6 +4,7 @@ import {DrawerNavigatorItems} from 'react-navigation-drawer';
 
 
 const Scroll = styled.ScrollView`
+flex:1;
 
 `;
 

@@ -78,7 +78,7 @@ const deleteItem = (index) =>{
 
 const styles = StyleSheet.create({
     Listagem:{       
-        width:300,
+        width:270,
         height:400,
         marginLeft:5,
         marginRight:5
@@ -87,14 +87,23 @@ const styles = StyleSheet.create({
 })
 
 
-Page.navigationOptions = () =>{
+Page.navigationOptions = (props) =>{
+
+    const ToggleArea = styled.TouchableHighlight`
+        width:50px;
+        height:50px ;
+    `;
+
+    const ImageMenu = styled.Image`
+        width:50px;
+        height:50px ;
+    `;
+
     return{
-        title:'Lista de compras',
-        drawerIcon: () => (
-            <Image
-              source={require('../images/icons/lista.png')}
-              style={{width: 30, height: 30, borderRadius: 15}}
-            />)
+        title:' Lista de Compras ',
+        headerLeft:<ToggleArea onPress={()=>props.navigation.openDrawer() } >
+                        <ImageMenu source={require('../images/icons/menu.png')} />
+                   </ToggleArea>
     }
 }
 

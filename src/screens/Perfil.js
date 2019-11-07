@@ -1,27 +1,41 @@
 
 import React, { Component } from 'react'
 import { Text, StyleSheet, View ,Image} from 'react-native'
+import styled from 'styled-components/native';
 import axios from 'axios'
+
+const ToggleArea = styled.TouchableHighlight`
+width:50px;
+height:50px ;
+`;
+
+const ImageMenu = styled.Image`
+width:50px;
+height:50px ;
+`;
 
 export default class Perfil extends Component {
 
-    static navigationOptions = {
-        title:'Perfil',
-        drawerIcon: () => (
-            <Image
-              source={require('../images/icons/perfil.png')}
-              style={{width: 30, height: 30, borderRadius: 15}}
-            />)
-    };
-   
-    constructor()
+    constructor(props)
     {
-        super()
+        super(props)
 
         this.state = {
             storesList:[]
         }
-    }
+    }   
+  
+
+
+    static navigationOptions = {
+
+        title:'Perfil',
+        headerLeft:<ToggleArea onPress={()=>props.navigation.openDrawer() } >
+                        <ImageMenu source={require('../images/icons/menu.png')} />
+                   </ToggleArea>
+    };
+   
+    
     componentDidMount()
     {
         axios.get('http://10.0.3.2:9000/lojas/get_stores')

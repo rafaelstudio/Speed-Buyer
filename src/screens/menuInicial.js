@@ -109,11 +109,6 @@ const TitleText = styled.Text `
 
 
 
-
-
-
-
-
 const Page = (props)=>{
 
     
@@ -263,15 +258,25 @@ const Page = (props)=>{
     );
 }
 
-Page.navigationOptions = () =>{
+Page.navigationOptions = (props) =>{
+
+    const ToggleArea = styled.TouchableHighlight`
+        width:50px;
+        height:50px ;
+    `;
+
+    const ImageMenu = styled.Image`
+        width:50px;
+        height:50px ;
+    `;
+
     return{
-        title:'Inicio',
-        drawerLabel: 'Menu Inicial',
-        drawerIcon: () => (
-            <Image
-              source={require('../images/icons/carrinho.png')}
-              style={{width: 30, height: 30, borderRadius: 15}}
-            />)
+        title:' Inicio ',
+        headerLeft:<ToggleArea onPress={()=>props.navigation.openDrawer() } >
+                        <ImageMenu source={require('../images/icons/menu.png')} />
+                   </ToggleArea>
+
+                   
     }
 }
 
