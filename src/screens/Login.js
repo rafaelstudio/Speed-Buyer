@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {NavigationActions, StackActions}from 'react-navigation';
+import Selecao from '../components/SelecaoPiker';
 
 const Container = styled.SafeAreaView`
     flex:1;
@@ -69,7 +70,9 @@ const Page = (props)=>{
         
 
 <Background source={require('../images/Backgrounds/carrinho.jpg')}>
-    <Container>              
+    <Container>          
+
+                <Selecao  />    
         
                 <Input placeholder="CPF/CNPJ"/>
 

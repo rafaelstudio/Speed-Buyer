@@ -13,9 +13,6 @@ const Listagem = styled.FlatList`
 
 
 
-const Image = styled.Image`
-
-`;
 
 
 
