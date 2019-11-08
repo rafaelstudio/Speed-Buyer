@@ -45,7 +45,10 @@ const styles = StyleSheet.create({
 
     select:{
         width:250,
-        height:50
+        height:50,
+        borderRadius: 4,
+        borderWidth: 0.5,
+        borderColor: '#000000'
     }
 })
 
