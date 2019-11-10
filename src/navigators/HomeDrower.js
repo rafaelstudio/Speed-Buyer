@@ -1,6 +1,7 @@
 import React from 'react';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import CustomDrawer from '../components/CustomDrawer'
+import firebase from '../components/FirebaseConnection';
 import { Image} from 'react-native'
 
 

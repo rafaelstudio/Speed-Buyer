@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{Component} from 'react';
 import styled from 'styled-components/native';
 import {DrawerNavigatorItems} from 'react-navigation-drawer';
+import firebase from '../components/FirebaseConnection';
+import Sistema from '../Sistema';
 
 
 const Scroll = styled.ScrollView`
@@ -38,24 +40,55 @@ const TextBotao = styled.Text`
 
 
 
-export default (props) => {
-   
+export default class CustomDrawer extends Component{
+
+  
+
+    constructor(props){
+        super(props);
+        this.state ={
+            nome:''
+        };
+
+        this.sair = this.sair.bind(this);
+
+        if(firebase.auth().currentUser){
+            firebase.database().ref('usuarios')
+            .child(firebase.auth().currentUser.uid)
+            .once('value')
+            .then((snapshot)=>{
+                let state = this.state;
+                state.nome = snapshot.val().nome;
+                this.setState(state);
+            });
+        }
+    }
+
+    sair(){
+        Sistema.logout();
+        this.navigation.navigate('Login')
+    }
+
+render() {
 return(
     <Scroll>
         <Area>
             <Logo source={require('../images/user.png')}/>
+                <TextBotao>Ola,{this.state.nome}</TextBotao>
             <DrawerNavigatorItems 
-            {...props} 
+            {...this.props} 
                 itemsContainerStyle={{width:'100%'}}
             
             />
 
-            <Botao>
+            <Botao onPress={this.sair}>
                 <TextBotao>Sair</TextBotao>
             </Botao>
         </Area>
     </Scroll>
 
 );
+
+}
 
 }
